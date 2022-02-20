@@ -42,12 +42,16 @@ struct ContentView: View {
                                                          green: Float(sliderGreenValue/255),
                                                          blue: Float(sliderBlueValue/255),
                                                          alpha: 1)))
+// цвета не передаются в RectangleFile.foregroundColor
+//                HStackFile(value: sliderRedValue, text: sliderRedText, color: .red)
+//                HStackFile(value: sliderGreenValue, text: sliderGreenText, color: .green)
+//                HStackFile(value: sliderBlueValue, text: sliderBlueText, color: .blue)
                 
                 HStack{
                     Text("\(lround(sliderRedValue))")
                         .padding()
                     ColorSliderView (color: .red, value: $sliderRedValue)
-                    
+
                     TextField("text", text: $sliderRedText)
                         .onSubmit {
                             guard sliderRedText.isEmpty == false && Double(sliderRedText) != nil else { return }
@@ -74,7 +78,7 @@ struct ContentView: View {
                     Text("\(lround(sliderBlueValue))")
                         .padding()
                     ColorSliderView (color: .blue, value: $sliderBlueValue)
-                    
+
                     TextField("text", text: $sliderBlueText)
                         .onSubmit {
                             guard sliderBlueText.isEmpty == false && Double(sliderBlueText) != nil else { return }
@@ -83,7 +87,6 @@ struct ContentView: View {
                         .frame(width: 80)
                         .background()
                         .padding()
-                    
                 }
                 Spacer()
 //                Button("Done",action: checkText)
